@@ -1,4 +1,3 @@
-// eslint.config.js
 import js from '@eslint/js';
 import globals from 'globals';
 
@@ -7,7 +6,7 @@ export default [
   {
     files: ['**/*.js'],
     languageOptions: {
-      sourceType: 'script',
+      sourceType: 'module', // ← this is the key
       globals: { ...globals.browser },
     },
     rules: {
