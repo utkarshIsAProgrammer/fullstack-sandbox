@@ -17,3 +17,7 @@
 - HTML5: For the basic structure of the page.
 - CSS3: For all styling, including the transitions and animations.
 - Remix Icons: For a scalable, vector-based set of social media icons.
+
+## Project Live Link
+
+(GitHub)[https://panchajanyacodes.github.io/icon-hover-effect/]
