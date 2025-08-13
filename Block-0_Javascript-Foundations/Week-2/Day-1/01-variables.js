@@ -1,28 +1,28 @@
-// Variable Declaration
+// Variable declaration
 let message;
 
-// Variable Assignment
+// Variable assignment
 message = 'Hello! I am a full stack developer.';
 
-// Accessing Variable
+// Accessing variable
 console.log(message);
 
-// Variable Declaration + Assignment
+// Variable declaration + assignment
 let myName = 'Panchajanya';
 console.log(myName);
 
-// Declaring Multiple Variable  In One Line
+// Declaring multiple variable  in one line
 let favFruit = 'Pineapple',
   favLang = 'Python',
   favWork = 'Coding';
 console.log(favFruit, favLang, favWork);
 
-// Copying Data of A Variable To Another Variable
+// Copying data of a variable yo another variable
 let currentJobRole = 'Full Stack Developer';
 let newJobRole = currentJobRole;
 console.log(newJobRole);
 
-// Variable Naming Convention
+// Variable naming convention
 // 1. The name must contain only letters, digits, or the symbols "$" and "_".
 // 2. The first character must not be a digit.
 // 3. Reserved keywords cannot be used as a variable name.
@@ -33,7 +33,7 @@ let $ = '$';
 let _ = '_';
 console.log(_ + $ + _);
 
-// Making A Constant Variable
+// Making a constant variable
 const myBirthday = '10 December 2005';
 console.log(myBirthday);
 
