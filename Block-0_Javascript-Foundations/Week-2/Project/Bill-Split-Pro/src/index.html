@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BillSplit Pro - Professional Bill Splitting Tool</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-receipt"></i>
+          <h1>BillSplit Pro</h1>
+        </div>
+        <p class="tagline">Professional bill splitting for freelancers and clients</p>
+      </header>
+
+      <div id="alert-container"></div>
+
+      <div class="card">
+        <div class="tabs">
+          <div class="tab active" data-tab="bill-details">Bill Details</div>
+          <div class="tab" data-tab="diners">Diners</div>
+          <div class="tab" data-tab="results">Results</div>
+        </div>
+
+        <div class="tab-content active" id="bill-details">
+          <form id="bill-form">
+            <div class="form-group">
+              <label for="subtotal">Bill Subtotal</label>
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input
+                  type="number"
+                  id="subtotal"
+                  placeholder="0.00"
+                  step="0.01"
+                  min="0"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="two-column">
+              <div class="form-group">
+                <label for="tax-rate">Tax Rate (%)</label>
+                <input type="number" id="tax-rate" placeholder="8.5" step="0.01" min="0" required />
+              </div>
+              <div class="form-group">
+                <label for="tip-rate">Tip Rate (%)</label>
+                <input type="number" id="tip-rate" placeholder="15" step="0.01" min="0" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="service-fee">Service Fee (Optional)</label>
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input type="number" id="service-fee" placeholder="0.00" step="0.01" min="0" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="split-type">Split Type</label>
+              <div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="split-type" />
+                  <span class="slider"></span>
+                </label>
+                <span id="split-label">Even Split</span>
+              </div>
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-secondary" id="load-last-bill">
+                <i class="fas fa-history"></i> Load Last Bill
+              </button>
+              <button type="button" class="btn btn-success" id="save-bill">
+                <i class="fas fa-save"></i> Save Bill
+              </button>
+              <button type="button" class="btn" id="calculate-btn">
+                <i class="fas fa-calculator"></i> Calculate
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="tab-content" id="diners">
+          <div class="form-group">
+            <label for="diner-count">Number of Diners</label>
+            <div class="input-group">
+              <input type="number" id="diner-count" placeholder="2" min="1" value="2" />
+              <button type="button" class="btn" id="update-diner-count">Update</button>
+            </div>
+          </div>
+
+          <div class="diners-section">
+            <h3>Diner Details</h3>
+            <div id="diners-list">
+              <!-- Diners will be added here dynamically -->
+            </div>
+            <button type="button" class="btn btn-secondary" id="add-diner-btn">
+              <i class="fas fa-plus"></i> Add Diner
+            </button>
+          </div>
+
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary" id="back-to-bill">
+              <i class="fas fa-arrow-left"></i> Back to Bill
+            </button>
+            <button type="button" class="btn" id="calculate-from-diners">
+              <i class="fas fa-calculator"></i> Calculate
+            </button>
+          </div>
+        </div>
+
+        <div class="tab-content results-section" id="results">
+          <h2>Bill Summary</h2>
+          <div class="result-item">
+            <span class="label">Subtotal:</span>
+            <span class="value" id="result-subtotal">$0.00</span>
+          </div>
+          <div class="result-item">
+            <span class="label">Tax:</span>
+            <span class="value" id="result-tax">$0.00</span>
+          </div>
+          <div class="result-item">
+            <span class="label">Tip:</span>
+            <span class="value" id="result-tip">$0.00</span>
+          </div>
+          <div class="result-item">
+            <span class="label">Service Fee:</span>
+            <span class="value" id="result-service-fee">$0.00</span>
+          </div>
+          <div class="result-item">
+            <span class="label">Total:</span>
+            <span class="value" id="result-total">$0.00</span>
+          </div>
+
+          <h3 style="margin-top: 30px">Diner Shares</h3>
+          <div id="diner-results">
+            <!-- Diner results will be added here dynamically -->
+          </div>
+
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary" id="edit-bill">
+              <i class="fas fa-edit"></i> Edit Bill
+            </button>
+            <button type="button" class="btn btn-success" id="export-json">
+              <i class="fas fa-file-export"></i> Export JSON
+            </button>
+            <button type="button" class="btn" id="share-bill">
+              <i class="fas fa-share-alt"></i> Share Bill
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>
+          BillSplit Pro &copy; 2025 | A professional bill splitting tool for freelancers and clients
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
