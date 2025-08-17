@@ -63,3 +63,13 @@ console.log(stringArray);
 // join() method join the array as a string
 let arrayString = stringArray.join();
 console.log(arrayString);
+
+// reduce() method call the function for each element of array and proceed further with the previous result and return a single value
+let lengthSum = lengths.reduce((acc, i) => {
+  return acc + i;
+});
+console.log(lengthSum);
+
+// Check is the given value is array or not
+console.log(Array.isArray(lengths));
+console.log(Array.isArray(lengthSum));
